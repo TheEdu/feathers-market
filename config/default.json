@@ -30,8 +30,8 @@
     "oauth": {
       "redirect": "/",
       "github": {
-        "key": "<github oauth key>",
-        "secret": "<github oauth secret>"
+        "key": "ec654b58facae392d09d",
+        "secret": "9391f553bb317809646d5ae084b35623e4b84c88"
       }
     }
   },
