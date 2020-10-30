@@ -1,6 +1,7 @@
 module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
   return async context => {
     const { app, data } = context;
+    const { user } = context.params;
 
     if(!data.uid) {
       throw new Error('A Product must have a uid');
@@ -26,10 +27,10 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
      });
 
     if(total > 0) {
-      throw new Error('Product´s UID must be unique');
+      throw new Error('Product´s UID must be Unique');
     }
 
-     // Unique UID Validation
+     // Market must  exist
     const markets = await app.service('markets').find({
         query: {
           uid: data.market
@@ -37,17 +38,12 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
      });
 
     if(markets.total == 0 || markets.total > 1) {
-      throw new Error('Market must Exists');
+      throw new Error('Market must  Exist');
     }
 
-    // The logged in user
-    const { user } = context.params;
-
-    console.log(markets.data[0]);
-    console.log(user._id);
-
+    // Market owner
     if(markets.data[0].userId != user._id) {
-      throw new Error('You must be the owner of the Marke to create a new product');
+      throw new Error('You must be the owner of the Market to create a new product');
     }
 
     context.data = {
