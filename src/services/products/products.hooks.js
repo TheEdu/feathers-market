@@ -2,6 +2,8 @@ const { authenticate } = require('@feathersjs/authentication').hooks;
 
 const processProduct = require('../../hooks/process-product');
 
+const populatePrices = require('../../hooks/populate-prices');
+
 module.exports = {
   before: {
     all: [ authenticate('jwt') ],
@@ -14,7 +16,7 @@ module.exports = {
   },
 
   after: {
-    all: [],
+    all: [populatePrices()],
     find: [],
     get: [],
     create: [],
