@@ -1,5 +1,5 @@
 {
-  "host": "localhost",
+  "host": "featherjs-market.herokuapp.com",
   "port": 3030,
   "public": "../public/",
   "paginate": {
