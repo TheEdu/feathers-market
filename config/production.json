@@ -1,4 +1,4 @@
 {
-  "host": "feathers-market-app.feathersjs.com",
-  "port": "PORT"
+  "host": "featherjs-market.herokuapp.com",
+  "port": "443"
 }
