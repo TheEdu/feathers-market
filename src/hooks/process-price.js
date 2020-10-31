@@ -38,10 +38,15 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
       throw new Error('You must be the owner of the Market.');
     }
 
+    await app.service('products').patch(product._id, {
+      "sale_price": data.sale_price,
+      "purchase_price": data.purchase_price,
+      "wholesale_price": data.wholesale_price
+    });
 
     context.data = {
-    	sale_price: data.sale_price,
-    	purchase_price: data.purchase_price,
+      sale_price: data.sale_price,
+      purchase_price: data.purchase_price,
       wholesale_price: data.wholesale_price,
       productId: product._id,
       createdAt: new Date().getTime()

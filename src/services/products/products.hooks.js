@@ -16,7 +16,7 @@ module.exports = {
   },
 
   after: {
-    all: [populatePrices()],
+    all: [/*populatePrices()*/],
     find: [],
     get: [],
     create: [],
